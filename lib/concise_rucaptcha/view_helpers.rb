@@ -13,7 +13,7 @@ module ConciseRuCaptcha
 
     def rucaptcha_image_tag(opts = {})
       opts[:class] = opts[:class] || 'rucaptcha-image'
-      image_tag(ru_captcha.root_url, opts)
+      image_tag(concise_ru_captcha.root_url, opts)
     end
   end
 end

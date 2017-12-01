@@ -9,7 +9,7 @@ require 'concise_rucaptcha/view_helpers'
 require 'concise_rucaptcha/cache'
 require 'concise_rucaptcha/engine'
 
-module RuCaptcha
+module ConciseRuCaptcha
   class << self
     def config
       return @config if defined?(@config)
@@ -35,10 +35,10 @@ module RuCaptcha
     end
 
     def check_cache_store!
-      cache_store = RuCaptcha.config.cache_store
+      cache_store = ConciseRuCaptcha.config.cache_store
       store_name = cache_store.is_a?(Array) ? cache_store.first : cache_store
       if [:memory_store, :null_store, :file_store].include?(store_name)
-        RuCaptcha.config.cache_store = [:file_store, Rails.root.join('tmp/cache/concise_rucaptcha/session')]
+        ConciseRuCaptcha.config.cache_store = [:file_store, Rails.root.join('tmp/cache/concise_rucaptcha/session')]
 
         puts "
 
@@ -58,9 +58,9 @@ module RuCaptcha
 end
 
 ActiveSupport.on_load(:action_controller) do
-  ActionController::Base.send :include, RuCaptcha::ControllerHelpers
+  ActionController::Base.send :include, ConciseRuCaptcha::ControllerHelpers
 end
 
 ActiveSupport.on_load(:action_view) do
-  include RuCaptcha::ViewHelpers
+  include ConciseRuCaptcha::ViewHelpers
 end

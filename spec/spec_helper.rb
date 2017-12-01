@@ -20,6 +20,6 @@ module Rails
   end
 end
 
-RuCaptcha.configure do
+ConciseRuCaptcha.configure do
   self.cache_store = :mem_cache_store
 end

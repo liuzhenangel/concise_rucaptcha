@@ -1,6 +1,6 @@
 // http://github.com/ITikhonov/captcha
 const int gifsize;
-void captcha(unsigned char im[70*200], unsigned char l[6]);
+void captcha(unsigned char im[70*200], unsigned char l[5]);
 void makegif(unsigned char im[70*200], unsigned char gif[gifsize], int style);
 
 #include <unistd.h>
@@ -152,7 +152,7 @@ static void filter(unsigned char im[70*200]) {
 
 static const char *letters="abcdafahijklmnopqrstuvwxyz";
 
-void captcha(unsigned char im[70*200], unsigned char l[6]) {
+void captcha(unsigned char im[70*200], unsigned char l[5]) {
   unsigned char swr[200];
   uint8_t s1,s2;
 
@@ -160,9 +160,10 @@ void captcha(unsigned char im[70*200], unsigned char l[6]) {
   read(f,l,5); read(f,swr,200); read(f,dr,sizeof(dr)); read(f,&s1,1); read(f,&s2,1);
   close(f);
 
-  memset(im,0xff,200*70); s1=s1&0x7f; s2=s2&0x3f; l[0]%=25; l[1]%=25; l[2]%=25; l[3]%=25; l[4]%=25; l[5]=0;
+  memset(im,0xff,200*70); s1=s1&0x7f; s2=s2&0x3f; l[0]%=25; l[1]%=25; l[2]%=25; l[3]%=25; l[4]=0;
   int p=30; p=letter(l[0],p,im,swr,s1,s2); p=letter(l[1],p,im,swr,s1,s2); p=letter(l[2],p,im,swr,s1,s2); p=letter(l[3],p,im,swr,s1,s2); //letter(l[4],p,im,swr,s1,s2);
-  //line(im,swr,s1); dots(im); // blur(im); // filter(im);
+  //line(im,swr,s1);
+	dots(im); // blur(im); // filter(im);
   l[0]=letters[l[0]]; l[1]=letters[l[1]]; l[2]=letters[l[2]]; l[3]=letters[l[3]]; //l[4]=letters[l[4]];
 }
 
@@ -184,19 +185,19 @@ void captcha(unsigned char im[70*200], unsigned char l[6]) {
 //
 // #endif
 
-VALUE RuCaptcha = Qnil;
+VALUE ConciseRuCaptcha = Qnil;
 
-void Init_rucaptcha();
+void Init_concise_rucaptcha();
 
 VALUE create(VALUE self, VALUE style);
 
-void Init_rucaptcha() {
-  RuCaptcha = rb_define_module("RuCaptcha");
-  rb_define_singleton_method(RuCaptcha, "create", create, 1);
+void Init_concise_rucaptcha() {
+  ConciseRuCaptcha = rb_define_module("ConciseRuCaptcha");
+  rb_define_singleton_method(ConciseRuCaptcha, "create", create, 1);
 }
 
 VALUE create(VALUE self, VALUE style) {
-  char l[6];
+  char l[5];
   unsigned char im[80*200];
   unsigned char gif[gifsize];
   int i_style = FIX2INT(style);

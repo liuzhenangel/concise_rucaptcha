@@ -1,2 +1,2 @@
 require 'mkmf'
-create_makefile('rucaptcha/rucaptcha')
+create_makefile('concise_rucaptcha/concise_rucaptcha')

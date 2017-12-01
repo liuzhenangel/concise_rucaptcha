@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'securerandom'
 
-describe RuCaptcha do
+describe ConciseRuCaptcha do
   class CustomSession
     attr_accessor :id
 
@@ -19,11 +19,11 @@ describe RuCaptcha do
     end
 
     def custom_session
-      RuCaptcha.cache.read(self.rucaptcha_sesion_key_key)
+      ConciseRuCaptcha.cache.read(self.rucaptcha_sesion_key_key)
     end
 
     def clean_custom_session
-      RuCaptcha.cache.delete(self.rucaptcha_sesion_key_key)
+      ConciseRuCaptcha.cache.delete(self.rucaptcha_sesion_key_key)
     end
   end
 
@@ -37,7 +37,7 @@ describe RuCaptcha do
 
   describe '.generate_rucaptcha' do
     it 'should work' do
-      allow(RuCaptcha).to receive(:create).and_return(['abcde', 'fake image data'])
+      allow(ConciseRuCaptcha).to receive(:create).and_return(['abcde', 'fake image data'])
       expect(simple.generate_rucaptcha).to eq 'fake image data'
       expect(simple.custom_session[:code]).to eq('abcde')
     end
@@ -59,7 +59,7 @@ describe RuCaptcha do
 
     context 'Correct chars in params' do
       it 'should work' do
-        RuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
+        ConciseRuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
           time: Time.now.to_i,
           code: 'abcd'
         })
@@ -67,7 +67,7 @@ describe RuCaptcha do
         expect(simple.verify_rucaptcha?).to eq(true)
         expect(simple.custom_session).to eq nil
 
-        RuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
+        ConciseRuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
           time: Time.now.to_i,
           code: 'abcd'
         })
@@ -76,7 +76,7 @@ describe RuCaptcha do
       end
 
       it 'should keep session when given :keep_session' do
-        RuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
+        ConciseRuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
           time: Time.now.to_i,
           code: 'abcd'
         })
@@ -90,7 +90,7 @@ describe RuCaptcha do
 
     describe 'Incorrect chars' do
       it 'should work' do
-        RuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
+        ConciseRuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
           time: Time.now.to_i - 60,
           code: 'abcd'
         })
@@ -102,7 +102,7 @@ describe RuCaptcha do
 
     describe 'Expires Session key' do
       it 'should work' do
-        RuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
+        ConciseRuCaptcha.cache.write(simple.rucaptcha_sesion_key_key, {
           time: Time.now.to_i - 121,
           code: 'abcd'
         })

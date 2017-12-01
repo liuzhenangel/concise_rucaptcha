@@ -5,7 +5,7 @@ require 'concise_rucaptcha/version'
 
 Gem::Specification.new do |s|
   s.name                  = 'concise_rucaptcha'
-  s.version               = RuCaptcha::VERSION
+  s.version               = ConciseRuCaptcha::VERSION
   s.authors               = 'Jason Lee, Rina Liu'
   s.email                 = 'huacnlee@gmail.com, rina.liuzhen@gmail.com'
   s.files                 = Dir.glob('lib/**/*.{rb}') +

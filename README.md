@@ -1,4 +1,13 @@
-# RuCaptcha
+# ConciseRuCaptcha
+
+本项目是在 <https://github.com/huacnlee/rucaptcha> 项目的基础上做的更新，仅修改了验证码位数，及图片显示的清晰度，目前是显示 4 位验证码，使用方法与原`gem rucaptcha`无差。名称不一样，这个 gem 的用法为 `gem concise_rucaptcha`.
+
+这是新的效果:
+
+<img src="https://l.ruby-china.org/photo/2017/366cd2af-1903-4371-ac36-16d2a2ce44f5.png" width="150px" /><img src="https://l.ruby-china.org/photo/2017/f7e63bc7-9ebb-46ea-aa16-c4609751c683.png" width="150px" />
+
+
+以下是 `rucaptcha` 原文档说明：
 
 [![Gem Version](https://badge.fury.io/rb/rucaptcha.svg)](https://badge.fury.io/rb/rucaptcha)
 [![Build Status](https://travis-ci.org/huacnlee/rucaptcha.svg)](https://travis-ci.org/huacnlee/rucaptcha)

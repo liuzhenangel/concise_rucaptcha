@@ -6,8 +6,7 @@
 
 <img src="https://l.ruby-china.org/photo/2017/366cd2af-1903-4371-ac36-16d2a2ce44f5.png" width="150px" /><img src="https://l.ruby-china.org/photo/2017/f7e63bc7-9ebb-46ea-aa16-c4609751c683.png" width="150px" />
 
-
-以下是 `rucaptcha` 原文档说明：
+以下是 `rucaptcha` 的效果：
 
 [![Gem Version](https://badge.fury.io/rb/rucaptcha.svg)](https://badge.fury.io/rb/rucaptcha)
 [![Build Status](https://travis-ci.org/huacnlee/rucaptcha.svg)](https://travis-ci.org/huacnlee/rucaptcha)
@@ -18,8 +17,6 @@ This is a Captcha gem for Rails Applications which generates captcha image by C 
 ## Example
 
 <img src="https://cloud.githubusercontent.com/assets/5518/22151425/e02390c8-df58-11e6-974d-5eb9b1a4e577.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151427/e4939d92-df58-11e6-9754-4a46a86acea8.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151431/e494576e-df58-11e6-9845-a5590904c175.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151432/e495066e-df58-11e6-92b8-38b40b73aba0.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151428/e49404ee-df58-11e6-8e2d-8b17b33a3710.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151430/e4942406-df58-11e6-9ff8-6e2325304b41.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151429/e4941ae2-df58-11e6-8107-757296573b2f.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151433/e4c7c89c-df58-11e6-9853-1ffbb4986962.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151435/e4c97ea8-df58-11e6-8959-b4c78716271d.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151436/e4cc09f2-df58-11e6-965c-673333b33c0d.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151434/e4c87788-df58-11e6-9490-c255aaafce71.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151445/ee35ff66-df58-11e6-8660-a3673ef3f5ee.gif" width="150px" /> <img src="https://cloud.githubusercontent.com/assets/5518/22151446/ee67b074-df58-11e6-9b95-7d53eec21c33.gif" width="150px" />
-
-[中文介绍和使用说明](https://ruby-china.org/topics/27832)
 
 ## Feature
 
@@ -33,10 +30,10 @@ This is a Captcha gem for Rails Applications which generates captcha image by C 
 Put rucaptcha in your `Gemfile`:
 
 ```
-gem 'rucaptcha'
+gem 'concise_rucaptcha'
 ```
 
-Create `config/initializers/rucaptcha.rb`
+Create `config/initializers/concise_rucaptcha.rb`
 
 ```rb
 RuCaptcha.configure do

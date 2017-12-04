@@ -36,7 +36,7 @@ gem 'concise_rucaptcha'
 Create `config/initializers/concise_rucaptcha.rb`
 
 ```rb
-RuCaptcha.configure do
+ConciseRuCaptcha.configure do
   # Color style, default: :colorful, allows: [:colorful, :black_white]
   # self.style = :colorful
   # Custom captcha code expire time if you need, default: 2 minutes
